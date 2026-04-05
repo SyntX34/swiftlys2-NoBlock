@@ -1,0 +1,6 @@
+{
+  "noblock.activated":      "No-block activated! You will pass through players for {0} seconds.",
+  "noblock.expired":        "Your no-block has ended. You are now solid again.",
+  "noblock.cooldown":       "You must wait {0} more second(s) before using no-block again.",
+  "noblock.already_active": "No-block is already active for you!"
+}

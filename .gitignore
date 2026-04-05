@@ -1,0 +1,6 @@
+.vscode
+.vscode/*
+obj
+obj/*
+build
+build/*
