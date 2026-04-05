@@ -1,36 +1,58 @@
 <div align="center">
   <img src="https://pan.samyyc.dev/s/VYmMXE" />
   <h2><strong>NoBlock</strong></h2>
-  <h3>No description.</h3>
+  <h3>Global noblock for X seconds on command + grenade noblock + ladder support</h3>
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status">
-  <img src="https://img.shields.io/github/downloads/SyntX/NoBlock/total" alt="Downloads">
-  <img src="https://img.shields.io/github/stars/SyntX/NoBlock?style=flat&logo=github" alt="Stars">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
   <img src="https://img.shields.io/github/license/SyntX/NoBlock" alt="License">
 </p>
 
-## Getting Started (delete me)
+## Features
 
-1. **Edit `PluginMetadata` Attribute**  
-   - Set your plugin's `Id`, `Name`, `Version`, `Author` and `Description`.
-2. **Edit `NoBlock.csproj`**  
-   - Set the `<AssemblyName>` property to match your plugin's main class name.
-   - Add any additional dependencies as needed.
-3. **Implement your plugin logic** in C#.
-   - Place your main plugin class in the root of the project.
-   - Use the SwiftlyS2 managed API to interact with the game and core.
-4. **Add resources**  
-   - Place any required files in the `gamedata`, `templates`, or `translations` folders as needed.
+- **Global NoBlock Command** - Players can use `!noblock` to enable noblock for themselves and all other players for a configurable duration
+- **Grenade NoBlock** - All grenade types pass through players globally:
+  - HE Grenade
+  - Flashbang
+  - Smoke Grenade
+  - Molotov / Incendiary
+  - Decoy
+- **Ladder Support** - Players on ladders automatically receive noblock until they leave the ladder
+- **Cooldown System** - Prevents spam with a configurable cooldown between uses
+
+## Usage
+
+- Type `!noblock` in chat to activate global noblock for the configured duration
+
+## Configuration
+
+Edit `config/plugins/NoBlock/config.jsonc` to customize:
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `HEGrenade` | true | Enable HE grenade noblock globally |
+| `Flashbang` | true | Enable flashbang noblock globally |
+| `SmokeGrenade` | true | Enable smoke grenade noblock globally |
+| `Molotov` | true | Enable molotov/incendiary noblock globally |
+| `Decoy` | true | Enable decoy grenade noblock globally |
+| `NoBlockTimer` | 5.0 | Duration of noblock in seconds when command is used |
+| `NoBlockCooldownTimer` | 10.0 | Cooldown in seconds before command can be used again |
+| `Ladder` | true | Enable noblock while on ladders |
+| `ChatPrefix` | ` [NoBlock] ` | Prefix for plugin chat messages |
+
+## Author
+
+**SyntX34**
 
 ## Building
 
-- Open the project in your preferred .NET IDE (e.g., Visual Studio, Rider, VS Code).
-- Build the project. The output DLL and resources will be placed in the `build/` directory.
-- The publish process will also create a zip file for easy distribution.
+```bash
+dotnet build
+```
 
 ## Publishing
 
-- Use the `dotnet publish -c Release` command to build and package your plugin.
-- Distribute the generated zip file or the contents of the `build/publish` directory.
+```bash
+dotnet publish -c Release
+```
