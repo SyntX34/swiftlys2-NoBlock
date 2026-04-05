@@ -17,7 +17,7 @@ namespace NoBlock;
 
 [PluginMetadata(
     Id          = "NoBlock",
-    Version     = "1.0.0",
+    Version     = "1.0.1",
     Name        = "NoBlock",
     Author      = "+SyntX34",
     Description = "Global noblock for X seconds on command + grenade noblock + ladder support."
@@ -190,14 +190,11 @@ public partial class NoBlock : BasePlugin
         _noBlockExpiry = DateTime.UtcNow.AddSeconds(duration);
 
         SendLocalizedChat(triggerer, "noblock.activated", (int)duration);
-        Core.Logger.LogDebug("[NoBlock] {0} triggered global noblock for {1}s.", triggerer.Name, duration);
     }
 
     private void OnNoBlockExpired()
     {
         _cooldownExpiry = DateTime.UtcNow.AddSeconds(Config.NoBlockCooldownTimer);
-
-        Core.Logger.LogDebug("[NoBlock] Expired. Cooldown {0}s.", Config.NoBlockCooldownTimer);
 
         foreach (var p in Core.PlayerManager.GetAllPlayers())
         {
